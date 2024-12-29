@@ -70,6 +70,12 @@
                 document.getElementById('search').focus();">🗑️</button>
             <input id="search" placeholder="Search" class="form-control">
             <button class="border" onclick="searchFun(document.getElementById('search').value)">🔍</button>
+                        <button class="border" onclick="
+                    document.getElementById('titleInput').value = document.getElementById('search').value;
+                    document.getElementById('description').value = originalVal
+                    document.getElementById('storeDiv').classList.remove('d-none')
+                    document.getElementById('titleInput').focus()">
+                ✍️</button>
             <button class="border" onclick="
                 const codeText = originalVal;
                 navigator.clipboard.writeText(codeText)
@@ -83,12 +89,6 @@
                         console.error('Error copying text: ', error);
                     });
             ">📋</button>
-            <button class="border" onclick="
-                    document.getElementById('titleInput').value = document.getElementById('search').value;
-                    document.getElementById('description').value = originalVal
-                    document.getElementById('storeDiv').classList.remove('d-none')
-                    document.getElementById('titleInput').focus()">
-                ✍️</button>
             <button class="border" onclick="
                 const searchTitles = document.getElementById('searchTitles');
                     if (this.textContent.trim() === '🙈') {
