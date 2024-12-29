@@ -70,7 +70,7 @@
                 document.getElementById('search').focus();">🗑️</button>
             <input id="search" placeholder="Search" class="form-control">
             <button class="border" onclick="searchFun(document.getElementById('search').value)">🔍</button>
-                        <button class="border" onclick="
+            <button class="border" onclick="
                     document.getElementById('titleInput').value = document.getElementById('search').value;
                     document.getElementById('description').value = originalVal
                     document.getElementById('storeDiv').classList.remove('d-none')
@@ -152,16 +152,17 @@
 }</code></pre>
                 </p>
                 <p class="mb-3">
-                    Your Firebase configuration will be stored securely in your browser's <code>localStorage</code>. 
-                    No irrelevant or excessive data will be stored in your database, and your information will not be stored anywhere else.
+                    Your Firebase configuration will be stored securely in your browser's <code>localStorage</code>.
+                    No irrelevant or excessive data will be stored in your database, and your information will not be
+                    stored anywhere else.
                 </p>
                 <p class="mb-3">
-                    You can view the source code in the browser's <strong>Inspect</strong> or visit 
+                    You can view the source code in the browser's <strong>Inspect</strong> or visit
                     <a href="https://github.com/deep-govindvira/keepfast" target="_blank" rel="noopener noreferrer">
                         https://github.com/deep-govindvira/keepfast
                     </a>.
                 </p>
-                
+
                 <p class="text-success text-center fw-bold">Happy Noting !!!</p>
             </div>
             <div id="info1">
@@ -178,12 +179,13 @@
     "appId": "XYZ",
     "measurementId": "XYZ"
 }'></textarea>
-        <button id="setConfigBtn" type="button" onclick="setConfig()" class="btn btn-outline-primary mt-3" title="Set firebase configuration">Connect</button>
+            <button id="setConfigBtn" type="button" onclick="setConfig()" class="btn btn-outline-primary mt-3"
+                title="Set firebase configuration">Connect</button>
         </div>
     </div>
 
-    <div class="mb-3 text-center">Made with ❤️ by <a href="https://github.com/deep-govindvira"
-            class="link-primary">Deep Govindvira</a></div>
+    <div class="mb-3 text-center">Made with ❤️ by <a href="https://github.com/deep-govindvira" class="link-primary">Deep
+            Govindvira</a></div>
     <script>
 
         window.changeTheme = function () {
@@ -391,7 +393,7 @@
                             return
                         }
                         originalVal = response + originalVal;
-                        result.innerHTML = `<div class='card shadow p-4 mt-3 ${localStorage.getItem('theme') == 'dark' ? "bg-dark text-light border-secondary" : "border-secondary"}'>` + 
+                        result.innerHTML = `<div class='card shadow p-4 mt-3 ${localStorage.getItem('theme') == 'dark' ? "bg-dark text-light border-secondary" : "border-secondary"}'>` +
                             marked.parse(response) +
                             "</div>" + cur;
 
@@ -444,13 +446,6 @@
                     }
                 });
 
-                document.getElementById('description').addEventListener("keydown", async function (event) {
-                    if (event.key === "Tab") {
-                        event.preventDefault();
-                        document.getElementById('saveBtn').focus();
-                    }
-                });
-
                 document.getElementById('titleInput').addEventListener("keydown", function (event) {
                     if (event.ctrlKey && event.key === "s") {
                         event.preventDefault();
@@ -466,6 +461,31 @@
                         createData(document.getElementById('titleInput').value, document.getElementById('description').value)
                         displayAllTitles();
                     }
+                });
+
+                document.getElementById('description').addEventListener("keydown", function (event) {
+                    let textarea = document.getElementById('description')
+                    if (event.key === "Tab") {
+                        event.preventDefault();
+                        const start = textarea.selectionStart;
+                        const end = textarea.selectionEnd;
+                        textarea.value = textarea.value.substring(0, start) + "\t" + textarea.value.substring(end);
+                        textarea.selectionStart = textarea.selectionEnd = start + 1;
+                    }
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+
+                        const start = textarea.selectionStart;
+                        const text = textarea.value;
+
+                        const lastNewlineIndex = text.lastIndexOf("\n", start - 1);
+                        const currentLine = text.substring(lastNewlineIndex + 1, start);
+                        const leadingWhitespace = currentLine.match(/^\s*/)[0];
+
+                        textarea.value = text.substring(0, start) + "\n" + leadingWhitespace + text.substring(start);
+                        textarea.selectionStart = textarea.selectionEnd = start + 1 + leadingWhitespace.length;
+                    }
+
                 });
 
 
