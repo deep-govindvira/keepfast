@@ -1,0 +1,303 @@
+html {
+    color: #6f42c1;
+}
+
+head {
+    color: #fd7e14;
+}
+
+body {
+    color: white;
+    background-color: #212529;
+    font-family: 'Roboto Mono', monospace;
+    margin: 20px;
+}
+
+h1 {
+    color: #dc3545;
+}
+
+h2 {
+    color: #28a745;
+}
+
+h3 {
+    color: #007bff;
+}
+
+h4 {
+    color: #ffc107;
+}
+
+h5 {
+    color: #17a2b8;
+}
+
+h6 {
+    color: #6f42c1;
+}
+
+p {
+    color: white;
+}
+
+a {
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+ul,
+ol {
+    color: #28a745;
+}
+
+li {
+    color: white;
+}
+
+li li {
+    color: pink;
+    /* color: #ffc107; */
+}
+
+li li li {
+    color: #17a2b8;
+}
+
+li li li li {
+    color: #dc3545;
+}
+
+li li li li li {
+    color: #28a745;
+}
+
+li li li li li li {
+    color: #6f42c1;
+}
+
+div,
+span {
+    color: white;
+}
+
+input,
+#searchInput,
+#titleInput,
+textarea,
+select {
+    color: white;
+    background-color: #212529;
+    font-family: 'Inter', sans-serif;
+}
+
+#titleInput::placeholder,
+#searchInput::placeholder,
+textarea::placeholder {
+    color: #6c757d;
+}
+
+#resultDiv {
+    font-family: 'Inter', sans-serif;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+}
+
+button {
+    color: white;
+    background-color: #212529;
+}
+
+button:hover {
+    color: black;
+    background-color: white;
+}
+
+table {
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+th {
+    color: #007bff;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+td {
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+code {
+    color: #17a2b8;
+}
+
+pre {
+    color: white;
+    background-color: black;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+blockquote {
+    color: #6f42c1;
+}
+
+.btn {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bs-dark);
+    color: #f8f9fa;
+    border: 1px solid #6c757d;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.CodeMirror {
+    background-color: #212529 !important;
+    color: WHITE;
+}
+
+.CodeMirror-line {
+    background-color: transparent !important;
+}
+
+.CodeMirror span {
+    background-color: transparent !important;
+}
+
+.CodeMirror-cursor {
+    border-left: 1px solid #d8dee9;
+}
+
+.CodeMirror-gutter {
+    background-color: #212529;
+    color: #d8dee9;
+}
+
+.editor-toolbar {
+    background-color: #212529;
+    color: #eceff4;
+}
+
+.editor-toolbar button {
+    color: #eceff4;
+}
+
+.CodeMirror ::selection {
+    background-color: #44475a;
+    color: #f8f8f2;
+}
+
+.CodeMirror .CodeMirror-selected {
+    background-color: #44475a;
+}
+
+.CodeMirror .CodeMirror-line::selection {
+    background-color: #44475a;
+}
+
+
+@media (max-width: 576px) {
+    html {
+        font-size: 80%;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.6rem;
+    }
+
+    h5 {
+        font-size: 1.4rem;
+    }
+
+    h6 {
+        font-size: 1.2rem;
+    }
+
+    p,
+    a,
+    li,
+    span,
+    div,
+    input,
+    textarea,
+    select,
+    button {
+        font-size: 1rem;
+    }
+}
+
+.editor-preview,
+.editor-preview-active {
+    background-color: #212529 !important;
+    color: #dcdcdc !important;
+    padding: 10px;
+}
+
+
+.editor-preview-side {
+    background-color: #212529 !important;
+    color: #dcdcdc !important;
+    padding: 10px;
+    border-left: 1px solid #444 !important;
+    overflow-y: auto;
+}
+
+.editor-preview,
+.editor-preview-side {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+.editor-preview,
+.editor-preview-active {
+    background-color: #212529 !important;
+    color: #dcdcdc !important;
+}
+
+.editor-preview-side::-webkit-scrollbar {
+    width: 8px;
+}
+
+.editor-preview-side::-webkit-scrollbar-thumb {
+    background-color: #212529;
+    border-radius: 4px;
+}
+
+.editor-preview-side::-webkit-scrollbar-track {
+    background-color: #212529;
+}

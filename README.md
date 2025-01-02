@@ -18,4 +18,4 @@ KeepFast is a simple, user-friendly note-taking application, similar to Google K
 
 ## Screenshot
 
-![Screenshot 2024-12-29 170947](https://github.com/user-attachments/assets/6aebc5f1-91f5-4215-b0bd-f224d0cc6bb0)
+![Screenshot 2025-01-03 012545](https://github.com/user-attachments/assets/72530c79-26db-4531-a88d-75ada4a3197c)
