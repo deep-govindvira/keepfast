@@ -97,8 +97,8 @@
                 </div>
                 <textarea id='descriptionTextarea'></textarea>
             </div>
-            <div id='resultDiv'></div>
         </div>
+        <div id='resultDiv'></div>
         <div class="mb-3 mt-3 text-center">Made with ❤️ by <a href="https://github.com/deep-govindvira"
                 class="link-primary">Deep Govindvira</a></div>
     </div>
@@ -416,7 +416,6 @@
 
                 searchInput.focus();
                 displayTitles();
-                resultDiv.innerHTML = getItem('html');
                 document.getElementById('app').classList.remove('d-none');
                 document.getElementById('config').classList.add('d-none');
 
@@ -429,6 +428,9 @@
         else {
             showMessage('Please enter Firebase configuration', 'primary')
         }
+        window.onload = function() {
+            resultDiv.innerHTML = getItem('html');
+        };
     </script>
 </body>
 
