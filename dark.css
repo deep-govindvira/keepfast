@@ -301,3 +301,11 @@ blockquote {
 .editor-preview-side::-webkit-scrollbar-track {
     background-color: #212529;
 }
+
+pre, code {
+    white-space: pre; 
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; 
+    max-width: 100%;
+    display: block;
+}  

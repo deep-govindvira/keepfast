@@ -204,3 +204,11 @@ pre {
         font-size: 1rem;
     }
 }
+
+pre, code {
+    white-space: pre; 
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; 
+    max-width: 100%;
+    display: block;
+}  
