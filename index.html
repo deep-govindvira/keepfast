@@ -282,7 +282,6 @@
                     const description = (await get(child(ref(db), key))).val();
 
                     const container = document.createElement('div');
-                    container.style.overflow = 'auto';
                     container.className = 'border rounded mt-3 p-3';
                     container.dataset.title = key;
 
@@ -329,6 +328,7 @@
 
 
                     const parsedDescription = document.createElement('div');
+                    parsedDescription.style.overflow = 'auto';
                     parsedDescription.innerHTML = marked.parse(description);
                     parsedDescription.className = 'mt-3';
 
