@@ -342,6 +342,7 @@
 
                 const handleCopy = (title, description) => {
                     titleInput.value = title;
+                    setItem('titleInput', titleInput.value);
                     titleInput.focus();
 
                     navigator.clipboard.writeText(description)
@@ -433,13 +434,21 @@
                 document.getElementById('app').classList.remove('d-none');
                 document.getElementById('config').classList.add('d-none');
 
+                titleInput.oninput = function () {
+                    setItem('titleInput', titleInput.value);
+                }
+
+
                 window.onload = async function () {
+                    titleInput.value = getItem('titleInput');; 
+                    if (!titleInput.value) {
+                        titleInput.value = '';
+                    }
                     const temp = notes;
                     for (let title of temp) {
                         await getDescription(title, true);
                     }
                 }
-
 
             } catch (e) {
                 showMessage('Invalid Firebase configuration', 'warning')
