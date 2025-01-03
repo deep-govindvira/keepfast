@@ -213,6 +213,7 @@ pre, code {
     display: block;
 }  
 
+.editor-preview,
 .editor-preview-side {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
