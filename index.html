@@ -290,18 +290,9 @@
                     heading.textContent = key;
 
                     const buttonContainer = document.createElement('div');
-                    buttonContainer.className = 'text-end';
+                    buttonContainer.className = 'd-flex justify-content-between'; // Use Flexbox to arrange the buttons
 
-                    const button = document.createElement('button');
-                    button.className = 'border me-3';
-
-                    const icon = document.createElement('i');
-                    icon.className = 'bi bi-clipboard';
-                    icon.title = key;
-
-                    button.addEventListener('click', () => handleCopy(key, description));
-                    button.appendChild(icon);
-
+                    // Remove Button
                     const removeButton = document.createElement('button');
                     removeButton.className = 'border me-3';
 
@@ -309,7 +300,6 @@
                     removeIcon.className = 'bi bi-trash';
 
                     removeButton.addEventListener('click', async () => {
-                        // container.remove();
                         resultDiv.querySelectorAll('*').forEach(element => {
                             if (element.dataset.title === key) {
                                 element.remove();
@@ -323,9 +313,20 @@
                     });
                     removeButton.appendChild(removeIcon);
 
+                    // Copy Button
+                    const button = document.createElement('button');
+                    button.className = 'border me-3';
+
+                    const icon = document.createElement('i');
+                    icon.className = 'bi bi-clipboard';
+                    icon.title = key;
+
+                    button.addEventListener('click', () => handleCopy(key, description));
+                    button.appendChild(icon);
+
+                    // Append the buttons to the container
                     buttonContainer.appendChild(removeButton);
                     buttonContainer.appendChild(button);
-
 
                     const parsedDescription = document.createElement('div');
                     parsedDescription.style.overflow = 'auto';
@@ -335,6 +336,7 @@
                     container.appendChild(heading);
                     container.appendChild(buttonContainer);
                     container.appendChild(parsedDescription);
+
 
                     resultDiv.prepend(container);
                     if (b == false) notes.push(key);
@@ -441,7 +443,7 @@
 
 
                 window.onload = async function () {
-                    titleInput.value = getItem('titleInput');; 
+                    titleInput.value = getItem('titleInput');;
                     if (!titleInput.value) {
                         titleInput.value = '';
                     }
