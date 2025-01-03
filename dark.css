@@ -309,3 +309,18 @@ pre, code {
     max-width: 100%;
     display: block;
 }  
+
+.editor-preview-side code {
+    background-color: black;
+}
+
+.editor-preview-side pre {
+    background-color: black;
+}
+
+.editor-preview pre {
+    border-radius: 5px;
+    background-color: black;
+    border: 1px solid white;
+    padding: 15px;
+}
