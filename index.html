@@ -211,6 +211,8 @@
                 const resetFirebaseConfigButton = document.getElementById('resetFirebaseConfigButton');
                 const changeThemeButton = document.getElementById('changeThemeButton');
 
+                let notes = getItem('notes');
+
                 const style = document.createElement('link');
                 style.rel = 'stylesheet';
 
@@ -276,11 +278,12 @@
                     }
                 }
 
-                const getDescription = async function (key) {
+                const getDescription = async function (key, b = false) {
                     const description = (await get(child(ref(db), key))).val();
 
                     const container = document.createElement('div');
                     container.className = 'border rounded mt-3 p-3';
+                    container.dataset.title = key;
 
                     const heading = document.createElement('h1');
                     heading.className = 'text-center';
@@ -306,9 +309,17 @@
                     removeIcon.className = 'bi bi-trash';
 
                     removeButton.addEventListener('click', async () => {
-                        container.remove()
+                        // container.remove();
+                        resultDiv.querySelectorAll('*').forEach(element => {
+                            if (element.dataset.title === key) {
+                                element.remove();
+                            }
+                        });
+
                         await remove(child(ref(db), key));
                         await displayTitles();
+                        notes = notes.filter((item) => item != key);
+                        setItem('notes', notes);
                     });
                     removeButton.appendChild(removeIcon);
 
@@ -325,7 +336,8 @@
                     container.appendChild(parsedDescription);
 
                     resultDiv.prepend(container);
-                    setItem('html', resultDiv.innerHTML);
+                    if (b == false) notes.push(key);
+                    setItem('notes', notes);
                 };
 
                 const handleCopy = (title, description) => {
@@ -398,7 +410,8 @@
 
                 const clearResult = function () {
                     resultDiv.innerHTML = '';
-                    removeItem('html');
+                    notes = [];
+                    setItem('notes', notes);
                 }
 
                 clearResultButton.addEventListener('click', clearResult);
@@ -420,6 +433,14 @@
                 document.getElementById('app').classList.remove('d-none');
                 document.getElementById('config').classList.add('d-none');
 
+                window.onload = async function () {
+                    const temp = notes;
+                    for (let title of temp) {
+                        await getDescription(title, true);
+                    }
+                }
+
+
             } catch (e) {
                 showMessage('Invalid Firebase configuration', 'warning')
                 localStorage.removeItem('firebaseConfig')
@@ -429,9 +450,6 @@
         else {
             showMessage('Please enter Firebase configuration', 'primary')
         }
-        window.onload = function() {
-            resultDiv.innerHTML = getItem('html');
-        };
     </script>
 </body>
 
