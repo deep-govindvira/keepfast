@@ -306,7 +306,7 @@ pre, code {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch; 
     max-width: 100%;
-    display: block;
+    /* display: block; */
 }  
 
 .editor-preview-side code {
