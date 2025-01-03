@@ -232,6 +232,7 @@
                 clearButton.onclick = function () {
                     titleInput.value = '';
                     editor.value('');
+                    setItem('titleInput', '');
                 }
 
                 let notes = getItem('notes');
