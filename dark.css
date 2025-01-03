@@ -22,15 +22,15 @@ h2 {
 }
 
 h3 {
-    color: #dc3545;
+    color: #17a2b8;
 }
 
 h4 {
-    color: #ffc107;
+    color: #dc3545;
 }
 
 h5 {
-    color: #17a2b8;
+    color: orange;
 }
 
 h6 {
@@ -60,7 +60,7 @@ li {
 
 li li {
     color: pink;
-    /* color: #ffc107; */
+    /* color: orange; */
 }
 
 li li li {
