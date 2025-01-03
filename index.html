@@ -92,6 +92,7 @@
             <div id='titlesDiv'></div>
             <div id="editorDiv" class="d-none">
                 <div class="mt-3 input-group mb-3">
+                    <button id='clearButton' type='button' class='border'><i class="bi bi-trash"></i></button>
                     <input id='titleInput' class='form-control text-center' placeholder='Title'>
                     <button id='saveButton' type='button' class='border'><i class="bi bi-save"></i>
                     </button>
@@ -178,18 +179,18 @@
                         'quote', 'code', {
                             name: "addHTMLButton",
                             action: function (editor) {
-                                const htmlButton = "<button class='btn btn-outline-dark' onclick=\"window.open('https://www.example.com', '_blank');\">Example Button</button>";
+                                const htmlButton = "<button class='btn btn-outline-dark m-2' onclick=\"window.open('https://www.example.com', '_blank');\">Example Button</button>";
                                 editor.codemirror.replaceSelection(htmlButton);
                             },
-                            className: "fa fa-plus", // FontAwesome icon or use your own
+                            className: "fa fa-plus",
                             title: "Insert Button"
                         },
                         {
                             name: "clearEditor",
                             action: function (editor) {
-                                editor.value(''); // Clears the editor content
+                                editor.value('');
                             },
-                            className: "fa fa-eraser", // FontAwesome icon or use your own
+                            className: "fa fa-eraser",
                             title: "Clear Editor"
                         }, 'table', 'horizontal-rule', '|',
                         'unordered-list', 'ordered-list', '|',
@@ -226,6 +227,12 @@
                 const titlesHideShowButton = document.getElementById('titlesHideShowButton');
                 const resetFirebaseConfigButton = document.getElementById('resetFirebaseConfigButton');
                 const changeThemeButton = document.getElementById('changeThemeButton');
+                const clearButton = document.getElementById('clearButton');
+
+                clearButton.onclick = function () {
+                    titleInput.value = '';
+                    editor.value('');
+                }
 
                 let notes = getItem('notes');
 
@@ -306,9 +313,8 @@
                     heading.textContent = key;
 
                     const buttonContainer = document.createElement('div');
-                    buttonContainer.className = 'd-flex justify-content-between'; // Use Flexbox to arrange the buttons
+                    buttonContainer.className = 'd-flex justify-content-between';
 
-                    // Remove Button
                     const removeButton = document.createElement('button');
                     removeButton.className = 'border rounded';
 
@@ -329,7 +335,6 @@
                     });
                     removeButton.appendChild(removeIcon);
 
-                    // Copy Button
                     const button = document.createElement('button');
                     button.className = 'border rounded';
 
@@ -337,11 +342,26 @@
                     icon.className = 'bi bi-clipboard';
                     icon.title = key;
 
-                    button.addEventListener('click', () => handleCopy(key, description));
+                    button.addEventListener('click', () => handleCopy(key, description, button));
                     button.appendChild(icon);
 
-                    // Append the buttons to the container
+                    const updateButton = document.createElement('button');
+                    updateButton.className = 'border rounded';
+
+                    const updateIcon = document.createElement('i');
+                    updateIcon.className = 'bi bi-pencil';
+                    updateIcon.title = key;
+
+                    updateButton.addEventListener('click', function () {
+                        titleInput.value = key;
+                        editor.value(description);
+                        setItem('titleInput', titleInput.value);
+                        editor.codemirror.focus();
+                    });
+                    updateButton.appendChild(updateIcon);
+
                     buttonContainer.appendChild(removeButton);
+                    buttonContainer.appendChild(updateButton);
                     buttonContainer.appendChild(button);
 
                     const parsedDescription = document.createElement('div');
@@ -359,15 +379,14 @@
                     setItem('notes', notes);
                 };
 
-                const handleCopy = (title, description) => {
-                    titleInput.value = title;
-                    editor.value(description);
-                    setItem('titleInput', titleInput.value);
-                    titleInput.focus();
-
+                const handleCopy = (title, description, copyButton) => {
                     navigator.clipboard.writeText(description)
                         .then(() => {
                             if (getItem('hideEditor')) hideShowEditor();
+                            copyButton.innerHTML = '✅';
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<i class="bi bi-clipboard"></i>';
+                            }, 2000);
                             console.log('Text copied to clipboard');
                         })
                         .catch((error) => {
