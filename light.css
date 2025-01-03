@@ -212,3 +212,8 @@ pre, code {
     max-width: 100%;
     display: block;
 }  
+
+.editor-preview-side {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
