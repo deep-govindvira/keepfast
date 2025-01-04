@@ -235,15 +235,6 @@
                     searchInput.setAttribute('name', 'no-autocomplete-' + new Date().getTime());
                 })
 
-                searchInput.addEventListener('click', function () {
-                    if (document.activeElement === searchInput) {
-                        searchInput.blur();
-                    } else {
-                        searchInput.focus();
-                    }
-                });
-
-
                 searchInput.onblur = function () {
                     setTimeout(() => {
                         if (!getItem('hide')) {
