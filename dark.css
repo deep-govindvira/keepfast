@@ -22,12 +22,14 @@ h6 { color: #CF9FFF; }
 
 a:hover { color: #0056b3; }
 
-ul, ol, li { color: #28a745; }
-li li { color: pink; }
+ul, ol, li { color: white; }
+
+li { color: white; }
+li li { color: #dc3545; }
 li li li { color: #17a2b8; }
-li li li li { color: #dc3545; }
-li li li li li { color: #28a745; }
-li li li li li li { color: #CF9FFF; }
+li li li li { color: #6f42c1; }
+li li li li li { color: orange; }
+
 
 input, #searchInput, #titleInput, textarea, select {
     background-color: #212529;

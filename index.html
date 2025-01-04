@@ -85,7 +85,8 @@
                 <button id="resetFirebaseConfigButton" type='button' class='border'>🔥</button>
                 <button id='clearResultButton' type='button' class='border'><i class="bi bi-eraser"></i></button>
                 <input id='searchInput' class='form-control' placeholder='Search'>
-                <button id="titlesHideShowButton" type='button' class='border'><i class="bi bi-eye-slash"></i></button>
+                <button id="titlesHideShowButton" type='button' class='border d-none'><i
+                        class="bi bi-eye-slash"></i></button>
                 <button id='hideShowEditorButton' type='button' class='border'><i class="bi bi-pencil"></i></button>
                 <button id="changeThemeButton" class="border">⬤</button>
             </div>
@@ -188,7 +189,7 @@
                         'unordered-list', 'ordered-list', '|',
                         'link', 'image', '|',
                         'preview', 'side-by-side', 'fullscreen', '|',
-                        'guide', 
+                        'guide',
                         {
                             name: "clearEditor",
                             action: function (editor) {
@@ -228,6 +229,19 @@
                 const resetFirebaseConfigButton = document.getElementById('resetFirebaseConfigButton');
                 const changeThemeButton = document.getElementById('changeThemeButton');
                 const clearButton = document.getElementById('clearButton');
+
+                searchInput.addEventListener('focus', function () {
+                    if (getItem('hide')) titlesHideShow();
+                })
+
+                searchInput.onblur = function () {
+                    setTimeout(() => {
+                        if (!getItem('hide')) {
+                            titlesHideShow();
+                        }
+                    }, 1000);
+
+                }
 
                 clearButton.onclick = function () {
                     titleInput.value = '';
