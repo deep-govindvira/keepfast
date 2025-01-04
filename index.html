@@ -372,6 +372,7 @@
                         titleInput.value = key;
                         editor.value(description);
                         setItem('titleInput', titleInput.value);
+                        if (getItem('hideEditor')) hideShowEditor();
                         editor.codemirror.focus();
                     });
                     updateButton.appendChild(updateIcon);
