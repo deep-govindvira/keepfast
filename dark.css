@@ -2,10 +2,6 @@ html {
     color: #CF9FFF;
 }
 
-head {
-    color: #fd7e14;
-}
-
 body {
     color: white;
     background-color: #212529;
@@ -13,108 +9,48 @@ body {
     margin: 20px;
 }
 
-h1 {
-    color: #007bff;
-}
-
-h2 {
-    color: #28a745;
-}
-
-h3 {
-    color: #17a2b8;
-}
-
-h4 {
-    color: #dc3545;
-}
-
-h5 {
-    color: orange;
-}
-
-h6 {
-    color: #CF9FFF;
-}
-
-p {
+h1, h2, h3, h4, h5, h6, p, li, div, span, a, input, textarea, select, button, code, pre {
     color: white;
 }
 
-a {
-    color: #007bff;
-}
+h1 { color: #007bff; }
+h2 { color: #28a745; }
+h3 { color: #17a2b8; }
+h4 { color: #dc3545; }
+h5 { color: orange; }
+h6 { color: #CF9FFF; }
 
-a:hover {
-    color: #0056b3;
-}
+a:hover { color: #0056b3; }
 
-ul,
-ol {
-    color: #28a745;
-}
+ul, ol, li { color: #28a745; }
+li li { color: pink; }
+li li li { color: #17a2b8; }
+li li li li { color: #dc3545; }
+li li li li li { color: #28a745; }
+li li li li li li { color: #CF9FFF; }
 
-li {
-    color: white;
-}
-
-li li {
-    color: pink;
-    /* color: orange; */
-}
-
-li li li {
-    color: #17a2b8;
-}
-
-li li li li {
-    color: #dc3545;
-}
-
-li li li li li {
-    color: #28a745;
-}
-
-li li li li li li {
-    color: #CF9FFF;
-}
-
-div,
-span {
-    color: white;
-}
-
-input,
-#searchInput,
-#titleInput,
-textarea,
-select {
-    color: white;
+input, #searchInput, #titleInput, textarea, select {
     background-color: #212529;
     font-family: 'Inter', sans-serif;
+    color: white;
 }
 
-#titleInput::placeholder,
-#searchInput::placeholder,
-textarea::placeholder {
+#titleInput::placeholder, #searchInput::placeholder, textarea::placeholder {
     color: #6c757d;
 }
 
-#resultDiv {
+#resultDiv, .btn {
     font-family: 'Inter', sans-serif;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+input:focus, textarea:focus, select:focus {
     border-color: #007bff;
 }
 
 button {
-    color: white;
     background-color: #212529;
+    color: white;
 }
-
 button:hover {
     color: black;
     background-color: white;
@@ -125,28 +61,17 @@ table {
     border: 1px solid white;
     border-radius: 5px;
 }
-
-th {
-    color: #007bff;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
-}
-
-td {
-    color: white;
+th, td {
     border: 1px solid white;
     border-radius: 5px;
     padding: 5px;
 }
+th { color: #007bff; }
 
 code {
     color: #17a2b8;
 }
-
 pre {
-    color: white;
     background-color: black;
     border: 1px solid #dee2e6;
     border-radius: 8px;
@@ -161,174 +86,29 @@ blockquote {
     color: #CF9FFF;
 }
 
-.btn {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bs-dark);
-    color: #f8f9fa;
-    border: 1px solid #6c757d;
-}
-
-.btn:hover {
-    background-color: white;
-    color: black;
-}
-
 .CodeMirror {
     background-color: #212529 !important;
-    color: WHITE;
+    color: white;
 }
-
-.CodeMirror-line {
+.CodeMirror-line, .CodeMirror span {
     background-color: transparent !important;
 }
-
-.CodeMirror span {
-    background-color: transparent !important;
-}
-
 .CodeMirror-cursor {
     border-left: 1px solid #d8dee9;
 }
-
 .CodeMirror-gutter {
     background-color: #212529;
     color: #d8dee9;
 }
-
-.editor-toolbar {
-    background-color: #212529;
-    color: #eceff4;
-}
-
-.editor-toolbar button {
-    color: #eceff4;
-}
-
-.CodeMirror ::selection {
+.CodeMirror ::selection,
+.CodeMirror .CodeMirror-selected,
+.CodeMirror .CodeMirror-line::selection {
     background-color: #44475a;
     color: #f8f8f2;
 }
 
-.CodeMirror .CodeMirror-selected {
-    background-color: #44475a;
-}
-
-.CodeMirror .CodeMirror-line::selection {
-    background-color: #44475a;
-}
-
-
-@media (max-width: 576px) {
-    html {
-        font-size: 80%;
-    }
-
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    h3 {
-        font-size: 1.8rem;
-    }
-
-    h4 {
-        font-size: 1.6rem;
-    }
-
-    h5 {
-        font-size: 1.4rem;
-    }
-
-    h6 {
-        font-size: 1.2rem;
-    }
-
-    p,
-    a,
-    li,
-    span,
-    div,
-    input,
-    textarea,
-    select,
-    button {
-        font-size: 1rem;
-    }
-}
-
-.editor-preview,
-.editor-preview-active {
-    background-color: #212529 !important;
-    color: #dcdcdc !important;
-    padding: 10px;
-}
-
-
-.editor-preview-side {
-    background-color: #212529 !important;
-    color: #dcdcdc !important;
-    padding: 10px;
-    border-left: 1px solid #444 !important;
-    overflow-y: auto;
-}
-
-.editor-preview,
-.editor-preview-side {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-}
-
-.editor-preview,
-.editor-preview-active {
-    background-color: #212529 !important;
-    color: #dcdcdc !important;
-}
-
-.editor-preview-side::-webkit-scrollbar {
-    width: 8px;
-}
-
-.editor-preview-side::-webkit-scrollbar-thumb {
-    background-color: #212529;
-    border-radius: 4px;
-}
-
-.editor-preview-side::-webkit-scrollbar-track {
-    background-color: #212529;
-}
-
-pre,
-code {
-    white-space: pre;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    max-width: 100%;
-}
-
-.editor-preview-side code {
-    background-color: black;
-}
-
-.editor-preview-side pre {
-    background-color: black;
-}
-
-.editor-preview pre {
-    border-radius: 5px;
-    background-color: black;
-    border: 1px solid white;
-    padding: 15px;
-}
-
-/*  */
-
-.CodeMirror {
-    background-color: #2e2e2e;
-    color: #f5f5f5;
+.editor-toolbar button {
+    color: #eceff4;
 }
 
 .editor-toolbar {
@@ -345,7 +125,60 @@ code {
     background-color: #444;
 }
 
-.editor-preview {
-    background-color: #2e2e2e;
-    color: #f5f5f5;
+.editor-preview, .editor-preview-active, .editor-preview-side {
+    background-color: #212529 !important;
+    color: #dcdcdc !important;
+    padding: 10px;
+}
+.editor-preview-side {
+    border-left: 1px solid #444 !important;
+    overflow-y: auto;
+}
+.editor-preview-side::-webkit-scrollbar {
+    width: 8px;
+}
+.editor-preview-side::-webkit-scrollbar-thumb {
+    background-color: #212529;
+    border-radius: 4px;
+}
+.editor-preview-side::-webkit-scrollbar-track {
+    background-color: #212529;
+}
+
+pre, code {
+    white-space: pre;
+    overflow-x: auto;
+    max-width: 100%;
+}
+.editor-preview-side code, .editor-preview-side pre, .editor-preview pre {
+    background-color: black;
+}
+.editor-preview pre {
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 15px;
+}
+
+/* Media Queries */
+@media (max-width: 576px) {
+    html { font-size: 80%; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.8rem; }
+    h4 { font-size: 1.6rem; }
+    h5 { font-size: 1.4rem; }
+    h6 { font-size: 1.2rem; }
+    p, a, li, span, div, input, textarea, select, button {
+        font-size: 1rem;
+    }
+}
+
+.btn {
+    color: white;
+    border: 1px solid white;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
 }
