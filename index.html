@@ -398,7 +398,6 @@
                 const handleCopy = (title, description, copyButton) => {
                     navigator.clipboard.writeText(description)
                         .then(() => {
-                            if (getItem('hideEditor')) hideShowEditor();
                             copyButton.innerHTML = '✅';
                             setTimeout(() => {
                                 copyButton.innerHTML = '<i class="bi bi-clipboard"></i>';
