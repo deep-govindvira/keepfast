@@ -101,7 +101,7 @@
                 <textarea id='descriptionTextarea'></textarea>
             </div>
         </div>
-        <div id='resultDiv'></div>
+        <div id='resultDiv' class="container" style="max-width: 760px; align-content: center;"></div>
         <div class="mb-3 mt-3 text-center">Made with ❤️ by <a href="https://github.com/deep-govindvira"
                 class="link-primary">Deep Govindvira</a></div>
     </div>
@@ -338,6 +338,7 @@
                     removeIcon.className = 'bi bi-trash';
 
                     removeButton.addEventListener('click', async () => {
+                        if(prompt("Are you sure ? Enter 1 : ") !== '1') return;
                         resultDiv.querySelectorAll('*').forEach(element => {
                             if (element.dataset.title === key) {
                                 element.remove();
