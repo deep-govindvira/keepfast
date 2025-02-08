@@ -32,7 +32,7 @@ li li li li li { color: orange; }
 
 
 input, #searchInput, #titleInput, textarea, select {
-    background-color: #212529;
+    background-color: #1E1E1E;
     font-family: 'Inter', sans-serif;
     color: #D1D1D1;
 }
@@ -50,7 +50,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 button {
-    background-color: #212529;
+    background-color: #1E1E1E;
     color: #D1D1D1;
 }
 button:hover {
@@ -91,7 +91,7 @@ blockquote {
 }
 
 .CodeMirror {
-    background-color: #212529 !important;
+    background-color: #1E1E1E !important;
     color: #D1D1D1;
 }
 .CodeMirror-line, .CodeMirror span {
@@ -101,7 +101,7 @@ blockquote {
     border-left: 1px solid #d8dee9;
 }
 .CodeMirror-gutter {
-    background-color: #212529;
+    background-color: #1E1E1E;
     color: #d8dee9;
 }
 .CodeMirror ::selection,
@@ -130,7 +130,7 @@ blockquote {
 }
 
 .editor-preview, .editor-preview-active, .editor-preview-side {
-    background-color: #212529 !important;
+    background-color: #1E1E1E !important;
     color: #dcdcdc !important;
     padding: 10px;
 }
@@ -142,11 +142,11 @@ blockquote {
     width: 8px;
 }
 .editor-preview-side::-webkit-scrollbar-thumb {
-    background-color: #212529;
+    background-color: #1E1E1E;
     border-radius: 4px;
 }
 .editor-preview-side::-webkit-scrollbar-track {
-    background-color: #212529;
+    background-color: #1E1E1E;
 }
 
 pre, code {
